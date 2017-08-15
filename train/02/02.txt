@@ -1,0 +1,15 @@
+Oninit
+frame.__init__
+a pretend error
+before mainloop
+Onexit
+TypeError: invalid result from App.OnExit(), an integer is required
+Oninit
+frame.__init__
+a pretend error
+before mainloop
+Onexit
+Traceback (most recent call last):
+  File "02.py", line 32, in OnExit
+    self.frame.Close()
+RuntimeError: wrapped C/C++ object of type Frame has been deleted
