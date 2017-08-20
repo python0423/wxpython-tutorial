@@ -2,11 +2,6 @@
 # @Author: admin
 # @Date:   2017-08-20 21:29:34
 # @Last Modified by:   admin
-# @Last Modified time: 2017-08-20 21:36:23
+# @Last Modified time: 2017-08-20 21:57:14
 import wx
-class ClassName(object):
-	"""docstring for ClassName"""
-	def __init__(self, arg):
-		super(ClassName, self).__init__()
-		self.arg = arg
-		
+import wx.py.PyCrust
