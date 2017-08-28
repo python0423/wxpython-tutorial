@@ -2,7 +2,7 @@
 # @Author: admin
 # @Date:   2017-08-17 22:00:31
 # @Last Modified by:   admin
-# @Last Modified time: 2017-08-20 21:12:28
+# @Last Modified time: 2017-08-28 21:20:04
 
 # 1.指定source和不指定的效果
 # import wx
@@ -81,6 +81,7 @@
 
 # 4.skip方法的使用
 import wx
+import time
 class DoubleFrame(wx.Frame):
 	"""docstring for DoubleFrame"""
 	def __init__(self,parent,id):
@@ -91,6 +92,7 @@ class DoubleFrame(wx.Frame):
 		self.button.Bind(wx.EVT_LEFT_DOWN,self.OnMouseDown)
 	# 当按钮被按下时，背景色变化，但不一定是鼠标左击事件
 	def OnClick(self,event):
+		time.sleep(5)
 		self.panel.SetBackgroundColour("Green")
 		self.panel.Refresh()
 	def OnMouseDown(self,event):
@@ -98,8 +100,6 @@ class DoubleFrame(wx.Frame):
 		# 这里使用skip确保能在鼠标点击后颜色变了，同时标题也出现
 		# skip函数用来维持处理器的等待状态，以监听其他操作，当鼠标左键被释放，则触发wx.EVT_BUTTON事件
 		event.Skip()
-
-		
 
 if __name__ == '__main__':
 	app=wx.App()
