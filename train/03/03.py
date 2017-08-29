@@ -2,7 +2,7 @@
 # @Author: admin
 # @Date:   2017-08-17 22:00:31
 # @Last Modified by:   admin
-# @Last Modified time: 2017-08-28 21:20:04
+# @Last Modified time: 2017-08-29 20:34:53
 
 # 1.指定source和不指定的效果
 # import wx
@@ -95,6 +95,7 @@ class DoubleFrame(wx.Frame):
 		time.sleep(5)
 		self.panel.SetBackgroundColour("Green")
 		self.panel.Refresh()
+	# 先捕捉到左键单击事件，然后捕捉按钮按下事件
 	def OnMouseDown(self,event):
 		self.SetLabel("again!")
 		# 这里使用skip确保能在鼠标点击后颜色变了，同时标题也出现
