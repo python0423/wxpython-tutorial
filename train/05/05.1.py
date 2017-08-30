@@ -69,12 +69,12 @@
 # 2. 使用PyGridTableBase来生成一个表
 import wx
 import wx.grid
-class LineupTable(wx.grid.PyGridTableBase):
+class LineupTable(wx.grid.GridTableBase):
 	data=(("CF","Bob","Dernier"),("CF","Bob","Dernier"),
 		("CF","Bob","Dernier"),("CF","Bob","Dernier"),
 		("CF","Bob","Dernier"),("CF","Bob","Dernier"),
 		("CF","Bob","Dernier"),("CF","Bob","Dernier"),("CF","Bob","Dernier"))
-	colLalbls=("Last","First")
+	colLabels=("Last","First")
 	def __init__(self):
 		wx.grid.GridTableBase.__init__(self)
 	def GetNumberRows(self):
@@ -82,17 +82,16 @@ class LineupTable(wx.grid.PyGridTableBase):
 	def GetNumberCols(self):
 		return len(self.data[0])-1
 	def GetColLabelValue(self,col):
-		return self.colLalbls[col]
+		return self.colLabels[col]
 	def GetRowLabelValue(self,row):
 		return self.data[row][0]
+
 	def IsEmptyCell(self,row,col):
 		return False
 	def GetValue(self,row,col):
 		return self.data[row][col+1]
 	def SetValue(self,row,col,value):
 		pass
-
-
 class SimpleGrid(wx.grid.Grid):
 	"""docstring for SimpleGrid"""
 	def __init__(self,parent):
