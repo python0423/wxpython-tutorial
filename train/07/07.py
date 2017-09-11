@@ -2,7 +2,7 @@
 # @Author: admin
 # @Date:   2017-09-03 11:00:56
 # @Last Modified by:   admin
-# @Last Modified time: 2017-09-04 20:45:18
+# @Last Modified time: 2017-09-09 17:28:36
 # 本章讲述静态文本控件
 
 # 第一个程序 ，基本的静态文本控件
@@ -76,7 +76,34 @@ import wx
 # 		sizer.AddMany([text,user,passwd,text_passwd])
 # 		panel.SetSizer(sizer)
 
+# 创建一个多行文本控件
+class TextFrame(wx.Frame):
+	"""docstring for TextFrame"""
+	def __init__(self):
+		wx.Frame.__init__(self,None,-1,"text",size=(300,250))
+		panel=wx.Panel(self,-1)
+		multext=wx.StaticText(panel,-1,u"多行文本")
+		# 创建一个多行文本控件
+		mulinput=wx.TextCtrl(panel,-1,u"马刺是今年的冠军\n\n"u"让我们拭目以待吧",size=(200,100),style=wx.TE_MULTILINE)
+		# 设置插入点
+		mulinput.SetInsertionPoint(0)
 
+		# 下一个文本控件
+		richtext=wx.StaticText(panel,-1,"richtext")
+		# 丰富文本控件
+		richinput=wx.TextCtrl(panel,-1,u"勇士今年夺冠",size=(200,300),style=wx.TE_MULTILINE|wx.TE_RICH2)
+		# 设置插入点
+		richinput.SetInsertionPoint(0)
+		# 设置文本样式
+		richinput.SetStyle(44,52,wx.TextAttr("white","black"))
+		points=richinput.GetFont().GetPointSize()
+		# 创建一个字体样式
+		f=wx.Font(points+3,wx.ROMAN,wx.ITALIC,wx.BOLD,True)
+		# 用新字体设置样式
+		richinput.SetStyle(68,82,wx.TextAttr("blue",wx.NullColour,f))
+		sizer=wx.FlexGridSizer(cols=2,hgap=6,vgap=6)
+		sizer.AddMany([multext,mulinput,richtext,richinput])
+		panel.SetSizer(sizer)
 
 
 
